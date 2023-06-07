@@ -11,6 +11,10 @@ let i
 let randcolorsArray
 let text_color
 let array
+let orderArray = []
+let order1 = Math.random()
+let order2 = Math.random()
+let order3 = Math.random()
 
 //Create a random array for the colors
 const arrayRandomColorFunction = () => {
@@ -49,14 +53,53 @@ const lightOrDark = (array) => {
 }
 
 
+const randomOrder = () => {
+    let order1 = Math.random()
+    let order2 = Math.random()
+    let order3 = Math.random()
+
+    if (order1 > order2 && order1 > order3) {
+        orderArray[0] = 0;
+        if (order2 > order3) {
+            orderArray[1] = 1;
+            orderArray[2] = 2;
+        } else {
+            orderArray[1] = 2;
+            orderArray[2] = 1;
+        }
+    } else if (order2 > order1 && order2 > order3 ) {
+        orderArray[0] = 1;
+        if (order1 > order3) {
+            orderArray[1] = 0;
+            orderArray[2] = 2;
+        } else {
+            orderArray[1] = 2;
+            orderArray[2] = 0;
+        }
+    } else if (order3 > order1 && order3 > order2 ) {
+        orderArray[0] = 2;
+        if (order1 > order2) {
+            orderArray[1] = 0;
+            orderArray[2] = 1;
+        } else {
+            orderArray[1] = 1;
+            orderArray[2] = 0;
+
+        }
+    }
+    return orderArray
+}
+
+
 //generates the new sections
 const newContent = (array) => {
+    randomOrder()
 
     for (i=0; i<group.length; i++) {
 
         newSec = document.createElement("section");
         newPara = document.createElement('p');
-        newText = document.createTextNode(group[i]);
+        newText = document.createTextNode(group[orderArray[i]]);
 
         newPara.appendChild(newText)
         newSec.appendChild(newPara)
@@ -71,8 +114,5 @@ const newContent = (array) => {
 
 newContent(group)
 
-
-
-//color light or dark
 
 
