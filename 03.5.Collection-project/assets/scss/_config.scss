@@ -1,0 +1,46 @@
+//Variables
+$colorBg : #F8F1F1;
+$colorBlue : #025464;
+$colorLightOrange : #E8AA42;
+$colorDarkOrange: #E57C23;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin h1 {
+    font-family: 'Darumadrop One', cursive;
+    font-size: 60px;
+    color: $colorBg;
+}
+
+@mixin h2 {
+    font-family: 'DM Serif Text';
+    font-size: 20px;
+    color: $colorBg;
+}
+
+@mixin h3 {
+    font-family: 'DM Serif Text';
+    font-size: 18px;
+    color: $colorBlue;
+}
+
+@mixin h4 {
+    font-family: 'Roboto';
+    font-size: 18px;
+}
+
+@mixin text {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 16px;
+}
+
+@mixin hr {
+    width: 40px;
+    border: 2px solid black;
+    
+}

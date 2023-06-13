@@ -1,0 +1,122 @@
+@import "config";
+
+
+header {
+    .headerBg {
+        position: absolute;
+        background-color: #E57C23;
+        height: 75vh;
+        width: 200vw;
+        transform: rotate(-20deg);
+        top: -83px;
+        left: -344px;
+        z-index: -1;
+    }
+    .headerText {
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px;
+        h1 {
+            @include h1();
+            text-align: center;
+            margin: 20px 50px
+        }
+        h2 {
+            @include h2();
+            margin: 20px
+        }
+        p {
+            @include text();
+        }
+    }
+}
+
+
+.sectionCards {
+    padding : 20px;
+    h3 {
+        @include h3();
+    }
+    .cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        .cardFrame {
+            height: 303px;
+            width: 303px;
+            border: 2px solid $colorBlue;
+            margin: auto;
+            margin-top: 20px;
+            img {
+                position: absolute;
+                width: 300px;
+                opacity: 0.9;
+            }
+            .plantName {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                display: flex;
+                flex-direction: column-reverse;
+                align-items: left;
+                padding: 20px;
+                h4 {
+                    @include h4();
+                    margin-left: 20px;
+                }
+                hr {
+                    @include hr();
+                    margin-bottom: 20px;
+                    margin-left: 20px;
+                }
+                transition: transform 250ms;
+                transition-timing-function: ease;
+            }
+        }
+        .cardFrame:hover {
+            img {
+                opacity: 0.3;
+            }
+
+            .plantName {
+                transform: translateY(-200px)
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+/*
+            .cardText {
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                
+                .card-elements {
+                    h5 {
+                        @include h5();
+                    }
+                    .cardSection {
+                        display: flex;
+                        flex-direction: row;
+                        .icon {
+                                height: 50px;
+                            }
+                    }
+                }
+    
+                
+            }
+        
+    }
+}
+*/
