@@ -50,43 +50,88 @@ header {
             border: 2px solid $colorBlue;
             margin: auto;
             margin-top: 20px;
+            display: flex;
             img {
                 position: absolute;
                 width: 300px;
                 opacity: 0.9;
+                z-index: -1;
+                }
             }
-            .plantName {
-                position: absolute;
+            .plantElements {
+                position: relative;
+                top: 200px;
                 width: 300px;
-                height: 300px;
+                height: fit-content;
+                color: black;
                 display: flex;
-                flex-direction: column-reverse;
+                flex-direction: column;
+                justify-content: flex-end;
                 align-items: left;
                 padding: 20px;
-                h4 {
-                    @include h4();
-                    margin-left: 20px;
-                }
-                hr {
-                    @include hr();
-                    margin-bottom: 20px;
-                    margin-left: 20px;
-                }
+                .plantName {
+                    h4 {
+                            @include h4();
+                            margin-left: 20px;
+                        }
+                    hr {
+                        @include hr();
+                        margin-bottom: 20px;
+                        margin-left: 20px;
+                    }
                 transition: transform 250ms;
                 transition-timing-function: ease;
+                }
+                h5 {
+                    @include h5();
+                }
+
+
+            }
+            .card-elements {
+                color: black;
+                display: flex;
+                flex-direction: column;
+
+
+                .cardSection {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    .cardSubSection {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        * {
+                            padding: 10px;
+                        }
+                        p {
+                            @include text();
+                        }
+                    }
+                    i {
+                        font-size: 35px;
+                    }
+                }
             }
         }
-        .cardFrame:hover {
-            img {
-                opacity: 0.3;
-            }
-
+        .emptyContainer:hover ~ .plantElements {
+            // img {
+            //     opacity: 0.3;
+            //     &.icon {
+            //         opacity: 0.9;
+            //     }
+            // }
             .plantName {
+                color: black;
                 transform: translateY(-200px)
+            }
+            .card-elements {
+                transform: translateY(-200px);
             }
         }
     }
-}
+
 
 
 

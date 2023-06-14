@@ -36,7 +36,7 @@ header .headerText h2 {
 }
 header .headerText p {
   font-family: "Roboto";
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
 }
 
@@ -60,38 +60,79 @@ header .headerText p {
   border: 2px solid #025464;
   margin: auto;
   margin-top: 20px;
+  display: flex;
 }
 .sectionCards .cards .cardFrame img {
   position: absolute;
   width: 300px;
   opacity: 0.9;
+  z-index: -1;
 }
-.sectionCards .cards .cardFrame .plantName {
-  position: absolute;
+.sectionCards .cards .plantElements {
+  position: relative;
+  top: 200px;
   width: 300px;
-  height: 300px;
+  height: fit-content;
+  color: black;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: left;
   padding: 20px;
+}
+.sectionCards .cards .plantElements .plantName {
   transition: transform 250ms;
   transition-timing-function: ease;
 }
-.sectionCards .cards .cardFrame .plantName h4 {
+.sectionCards .cards .plantElements .plantName h4 {
   font-family: "Roboto";
   font-size: 18px;
   margin-left: 20px;
 }
-.sectionCards .cards .cardFrame .plantName hr {
+.sectionCards .cards .plantElements .plantName hr {
   width: 40px;
   border: 2px solid black;
+  margin: 10px 0;
   margin-bottom: 20px;
   margin-left: 20px;
 }
-.sectionCards .cards .cardFrame:hover img {
-  opacity: 0.3;
+.sectionCards .cards .plantElements h5 {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 15px;
+  padding-bottom: 10px;
 }
-.sectionCards .cards .cardFrame:hover .plantName {
+.sectionCards .cards .card-elements {
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+.sectionCards .cards .card-elements .cardSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.sectionCards .cards .card-elements .cardSection .cardSubSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sectionCards .cards .card-elements .cardSection .cardSubSection * {
+  padding: 10px;
+}
+.sectionCards .cards .card-elements .cardSection .cardSubSection p {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
+}
+.sectionCards .cards .card-elements .cardSection i {
+  font-size: 35px;
+}
+.sectionCards .emptyContainer:hover ~ .plantElements .plantName {
+  color: black;
+  transform: translateY(-200px);
+}
+.sectionCards .emptyContainer:hover ~ .plantElements .card-elements {
   transform: translateY(-200px);
 }
 

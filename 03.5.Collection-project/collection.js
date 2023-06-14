@@ -155,160 +155,15 @@ const collection = [
 let cardList = document.querySelector('div.cards')
 
 
-const createInfo = () => {
-
-
-
-for (i=0; i<collection.length ; i++) {
-    
-
-    //characteristics big section (title + subsection)
-    chara = document.createElement('div')
-    chara.classList.add("card-elements")
-        chara_h5 = document.createElement('h5')
-        chara_text = document.createTextNode('Characteristics')
-        chara_h5.appendChild(chara_text)
-        chara.appendChild(chara_h5)
-
-        //characteristics subsection
-        chara_section = document.createElement('div')
-        chara_section.classList.add('cardSection')
-
-            //Plant size
-            plantSize = document.createElement('div')
-            plantSize.classList.add('plantSize')
-                plantSizeIcon = document.createElement('img')
-                plantSizeIcon.classList.add("icon")
-                plantSizeIcon.src = ("assets/img/plant-size.png");
-
-                plantSizeValue = document.createTextNode(collection[i].max_Size)
-                plantSizeText = document.createElement('p')
-                plantSizeText.appendChild(plantSizeValue)
-            
-            plantSize.appendChild(plantSizeIcon)
-            plantSize.appendChild(plantSizeText)
-  
-        chara_section.appendChild(plantSize)
-
-            //Plant toxicity
-            plantTox.classList.add('plantTox')
-                plantToxIcon = document.createElement('img')
-                plantToxIcon.classList.add("icon")
-                    if (collection[i].toxicity_icon === 1) {
-                        plantToxIcon.src = ("/assets/img/plant-toxic-1.png")
-                    } else {
-                        plantToxIcon.src = ("/assets/img/plant-toxic-2.png")
-                    }
-
-            plantTox.appendChild(plantToxIcon)
-
-        chara_section.appendChild(plantTox)
-
-    chara.appendChild(chara_section)
-
-
-    //Maintenance big section : name + subsection
-    mainte = document.createElement('div')
-    mainte.classList.add("card-elements")
-        mainte_h5 = document.createElement('h5')
-        mainte_text = document.createTextNode('Maintenance')
-        mainte_h5.appendChild(mainte_text)
-        mainte.appendChild(mainte_h5)
-            
-        mainte_section = document.createElement('div')
-        mainte_section.classList.add('cardSection')
-
-            //plant light
-            plantLight = document.createElement('div')
-                plantLightIcon1 = document.createElement('img')
-                plantLightIcon1.classList.add("icon")
-                    if (collection[i].light_icon >= 1) {
-                        plantLightIcon1.src = ("/assets/img/plant-sun")
-                    } else {
-                        plantLightIcon1.src = ("/assets/img/plant-sun-0")
-                    }
-
-                plantLightIcon2 = document.createElement('img')
-                plantLightIcon2.classList.add("icon")
-                    if (collection[i].light_icon >= 2) {
-                        plantLightIcon2.src = ("/assets/img/plant-sun")
-                    } else {
-                        plantLightIcon2.src = ("/assets/img/plant-sun-0")
-                    }
-
-                plantLightIcon3 = document.createElement('img')
-                plantLightIcon3.classList.add("icon")
-                    if (collection[i].light_icon >= 3) {
-                        plantLightIcon3.src = ("/assets/img/plant-sun")
-                    } else {
-                        plantLightIcon3.src = ("/assets/img/plant-sun-0")
-                    }
-            
-            plantLight.appendChild(plantLightIcon1)
-            plantLight.appendChild(plantLightIcon2)
-            plantLight.appendChild(plantLightIcon3)
-
-
-            //plant water
-            plantWater = document.createElement('div')
-                plantWaterIcon1 = document.createElement('img')
-                plantWaterIcon1.classList.add("icon")
-                    if (collection[i].water_icon >= 1) {
-                        plantWaterIcon1.src = ("/assets/img/plant-water")
-                    } else {
-                        plantWaterIcon1.src = ("/assets/img/plant-water-0")
-                    }
-                plantWaterIcon2 = document.createElement('img')
-                plantWaterIcon2.classList.add("icon")
-                    if (collection[i].water_icon >= 2) {
-                        plantWaterIcon2.src = ("/assets/img/plant-water")
-                    } else {
-                        plantWaterIcon2.src = ("/assets/img/plant-water-0")
-                    }
-                plantWaterIcon3 = document.createElement('img')
-                plantWaterIcon3.classList.add("icon")
-                    if (collection[i].water_icon >= 3) {
-                        plantWaterIcon3.src = ("/assets/img/plant-water")
-                    } else {
-                        plantWaterIcon3.src = ("/assets/img/plant-water-0")
-                    }
-            
-            plantWater.appendChild(plantWaterIcon1)
-            plantWater.appendChild(plantWaterIcon2)
-            plantWater.appendChild(plantWaterIcon3)
-
-        mainte_section.appendChild(plantLight)
-        mainte_section.appendChild(plantWater)
-        
-
-    mainte.appendChild(mainte_section)
-
-
-newCard.appendChild(chara)
-newCard.appendChild(mainte) 
-}
-
-
-
-}
-
-
-//____________________CARDS CREATION_________________
-const createCards = () => {
-    for (i=0; i<collection.length; i++) {
-
-        //create the card
-        newCard = document.createElement('div');
-        newCard.classList.add("cardFrame");
-
-        //get the image
-        newCardImage = document.createElement('img');
-        newCardImage.src = collection[i].picture;
-
-        //get the name
-        plantName = document.createTextNode(collection[i].common_Name);
+//Create the divPlantName
+const createPlantName = (plant) => {
+        plantNameText = document.createTextNode(plant.common_Name);
         plantNameH4 = document.createElement('h4');
-        plantNameH4.appendChild(plantName);
+        plantNameH4.appendChild(plantNameText);
+
+    //create the div plantElements
+    newDivPlantElements = document.createElement('div');
+    newDivPlantElements.classList.add("plantElements");
 
         //create the div plantName
         newDivPlantName = document.createElement('div');
@@ -319,9 +174,213 @@ const createCards = () => {
         newDivPlantName.appendChild(plantNameH4);
         newDivPlantName.appendChild(newHr);
 
+    newDivPlantElements.appendChild(newDivPlantName)
+}
+
+//Create the plant size subsection
+const createPlantSizeSection = (plant) => {
+    plantSize = document.createElement('div')
+    plantSize.classList.add('plantSize')
+    plantSize.classList.add('cardSubSection')
+
+
+        plantSizeIcon = document.createElement('i')
+        plantSizeIcon.classList.add("fa-solid")
+        plantSizeIcon.classList.add("fa-ruler-vertical")
+
+        plantSizeValue = document.createTextNode(plant.max_Size)
+        plantSizeText = document.createElement('p')
+        plantSizeText.appendChild(plantSizeValue)
+        
+    plantSize.appendChild(plantSizeIcon)
+    plantSize.appendChild(plantSizeText)
+}
+
+//Create the plant toxicity subsection
+const createPlantToxSection = (plant) => {
+    plantTox = document.createElement('div')
+    plantTox.classList.add('plantTox')
+    plantTox.classList.add('cardSubSection')
+
+
+        plantToxIcon = document.createElement('i')
+        plantToxIcon.classList.add("fa-solid")
+        plantToxIcon.classList.add("fa-skull-crossbones")
+            if (plant.toxicity_icon === 1) {
+                plantToxIcon.style.color = 'red'
+            } else {
+                plantToxIcon.style.color = 'grey'
+            }
+    plantTox.appendChild(plantToxIcon)
+}
+
+
+//Create the chara section -> display = none, except on hover
+const createCharaSection = (plant) => {
+
+    chara = document.createElement('div')
+    chara.classList.add("characteristics") 
+    chara.classList.add("card-elements")
+
+        //chara h5
+        chara_h5 = document.createElement('h5')
+        chara_text = document.createTextNode('Characteristics')
+        chara_h5.appendChild(chara_text)
+        
+
+        //characteristics subsection
+        chara_section = document.createElement('div')
+        chara_section.classList.add('cardSection')
+
+        createPlantSizeSection(plant)
+        createPlantToxSection(plant)
+
+        chara_section.appendChild(plantSize)
+        chara_section.appendChild(plantTox)
+
+    chara.appendChild(chara_h5)
+    chara.appendChild(chara_section)
+
+    chara.style.display = ('none')
+
+}
+
+//Create the light subsection
+const createPlantLightSection = (plant) => {
+    plantLight = document.createElement('div')
+    plantLight.classList.add('plantLight')
+        plantLightIcon1 = document.createElement('i')
+        plantLightIcon1.classList.add("fa-regular")
+        plantLightIcon1.classList.add("fa-sun")
+
+            if (plant.light_icon >= 1) {
+                plantLightIcon1.style.color = 'black'
+            } else {
+                plantLightIcon1.style.color = 'grey'
+            }
+
+        plantLightIcon2 = document.createElement('i')
+        plantLightIcon2.classList.add("fa-regular")
+        plantLightIcon2.classList.add("fa-sun")
+            if (plant.light_icon >= 2) {
+                plantLightIcon2.style.color = 'black'
+            } else {
+                plantLightIcon2.style.color = 'grey'
+            }
+
+        plantLightIcon3 = document.createElement('i')
+        plantLightIcon3.classList.add("fa-regular")
+        plantLightIcon3.classList.add("fa-sun")
+
+            if (plant.light_icon >= 3) {
+                plantLightIcon3.style.color = 'black'
+            } else {
+                plantLightIcon3.style.color = 'grey'
+            }
+            
+    plantLight.appendChild(plantLightIcon1)
+    plantLight.appendChild(plantLightIcon2)
+    plantLight.appendChild(plantLightIcon3)
+}
+
+//create the water subsection
+const createPlantWaterSection = (plant) => {
+    plantWater = document.createElement('div')
+    plantWater.classList.add("plantWater")
+        plantWaterIcon1 = document.createElement('i')
+        plantWaterIcon1.classList.add("fa-solid")
+        plantWaterIcon1.classList.add("fa-droplet")
+
+            if (plant.water_icon >= 1) {
+                plantWaterIcon1.style.color = 'black'
+            } else {
+                plantWaterIcon1.style.color = 'grey'
+            }
+
+        plantWaterIcon2 = document.createElement('i')
+        plantWaterIcon2.classList.add("fa-solid")
+        plantWaterIcon2.classList.add("fa-droplet")
+
+            if (plant.water_icon >= 2) {
+                plantWaterIcon2.style.color = 'black'
+            } else {
+                plantWaterIcon2.style.color = 'grey'
+            }
+
+        plantWaterIcon3 = document.createElement('i')
+        plantWaterIcon3.classList.add("fa-solid")
+        plantWaterIcon3.classList.add("fa-droplet")
+
+            if (plant.water_icon >= 3) {
+                plantWaterIcon3.style.color = 'black'
+            } else {
+                plantWaterIcon3.style.color = 'grey'
+            }
+            
+    plantWater.appendChild(plantWaterIcon1)
+    plantWater.appendChild(plantWaterIcon2)
+    plantWater.appendChild(plantWaterIcon3)
+}
+
+//Create the maintenance section -> display = none, except on hover
+const createMainteSection = (plant) => {
+    mainte = document.createElement('div')
+    mainte.classList.add("card-elements")
+    mainte.classList.add("maintenance")
+    
+        //H5
+        mainte_h5 = document.createElement('h5')
+        mainte_text = document.createTextNode('Maintenance')
+        mainte_h5.appendChild(mainte_text)
+
+    mainte.appendChild(mainte_h5)
+            
+        //mainte_section
+        mainte_section = document.createElement('div')
+        mainte_section.classList.add('cardSection')
+
+        createPlantLightSection(plant)
+        createPlantWaterSection(plant)
+
+        mainte_section.appendChild(plantLight)
+        mainte_section.appendChild(plantWater)
+    
+    mainte.appendChild(mainte_section)
+    mainte.style.display = ('none')
+}
+
+
+
+//____________________CARDS CREATION_________________
+const createCards = () => {
+    for (i=0; i<collection.length; i++) {
+
+        //create the card
+        newCard = document.createElement('div');
+        newCard.classList.add("cardFrame");
+        newCard.style.backgroundImage = `url(${collection[i].picture})`
+        newCard.style.backgroundSize = "cover"
+
+        //get the image
+        newCardImage = document.createElement('div');
+        newCardImage.classList.add("emptyContainer")
+        //newCardImage.src = collection[i].picture;
+
         //organise the card
+        createPlantName(collection[i])
         newCard.appendChild(newCardImage);
-        newCard.appendChild(newDivPlantName);
+        newCard.appendChild(newDivPlantElements);
+
+        //Add chara & maintenance
+        createCharaSection(collection[i])
+        createMainteSection(collection[i])
+
+        chara.classList.add("toBeHidden")
+        mainte.classList.add("toBeHidden")
+
+        newDivPlantElements.appendChild(chara)
+        newDivPlantElements.appendChild(mainte)
+
 
         //add all the cards to the list
         cardList.appendChild(newCard)
@@ -330,8 +389,44 @@ const createCards = () => {
     }
 }
 
+createCards()
 
-//_____________________________On hover : cards V2____________________
+let allCards = document.querySelectorAll(".cardFrame")
+let allChara = document.querySelectorAll(".characteristics")
+let allMainte = document.querySelectorAll(".maintenance")
+
+let allContainers = document.querySelectorAll(".emptyContainer")
+allContainers.forEach(element => {
+    element.style.width = "300px"
+    element.style.height = "300px"
+    element.style.position = "absolute"
+})
+
+
+const revealInfo = (cardframe) => {
+    let sectionsSelected = cardframe.querySelectorAll(".toBeHidden")
+    sectionsSelected.forEach(element => {
+        element.style.display = ('flex')
+    })
+}
+
+const hideInfo = (cardframe) => {
+    let sectionsSelected = cardframe.querySelectorAll(".toBeHidden")
+    sectionsSelected.forEach(element => {
+        element.style.display = ('none')
+    })
+}
+
+allContainers.forEach(element => {
+    element.addEventListener("mouseover", (e) => {
+        console.log(e.target)
+        revealInfo(e.target.parentNode)       
+    })
+    element.addEventListener("mouseleave", (e) => {
+        hideInfo(e.target.parentNode)
+    })
+})
+
 
 
 
