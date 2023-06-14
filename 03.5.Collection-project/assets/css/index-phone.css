@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 400px) {
+  header .headerBg {
+    position: absolute;
+    background-color: #E57C23;
+    height: 75vh;
+    width: 200vw;
+    transform: rotate(-20deg);
+    top: -83px;
+    left: -344px;
+    z-index: -1;
+  }
+  header .headerText {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+  }
+  header .headerText h1 {
+    font-family: "Darumadrop One", cursive;
+    font-size: 60px;
+    color: #F8F1F1;
+    text-align: center;
+    margin: 20px 50px;
+  }
+  header .headerText h2 {
+    font-family: "DM Serif Text";
+    font-size: 20px;
+    color: #F8F1F1;
+    margin: 20px;
+  }
+  header .headerText p {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .sectionCards {
+    padding: 20px;
+  }
+  .sectionCards h3 {
+    font-family: "DM Serif Text";
+    font-size: 18px;
+    color: #025464;
+  }
+  .sectionCards .cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+  .sectionCards .cards .cardFrame {
+    height: 303px;
+    width: 303px;
+    border: 2px solid #025464;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    overflow: hidden;
+  }
+  .sectionCards .cards .cardFrame img {
+    position: absolute;
+    width: 300px;
+    opacity: 0.9;
+    z-index: -1;
+  }
+  .sectionCards .cards .plantElements {
+    position: relative;
+    top: 200px;
+    width: 300px;
+    height: fit-content;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: left;
+    padding: 20px;
+    transition: transform 250ms;
+    transition-timing-function: ease;
+  }
+  .sectionCards .cards .plantElements .plantName h4 {
+    font-family: "Roboto";
+    font-size: 18px;
+    margin-left: 20px;
+  }
+  .sectionCards .cards .plantElements .plantName hr {
+    width: 40px;
+    border: 2px solid black;
+    margin: 10px 0;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  .sectionCards .cards .plantElements h5 {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 15px;
+    padding-bottom: 10px;
+  }
+  .sectionCards .cards .plantElements .card-elements {
+    color: black;
+    display: flex;
+    flex-direction: column;
+  }
+  .sectionCards .cards .plantElements .card-elements .cardSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .sectionCards .cards .plantElements .card-elements .cardSection .cardSubSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .sectionCards .cards .plantElements .card-elements .cardSection .cardSubSection * {
+    padding: 10px;
+  }
+  .sectionCards .cards .plantElements .card-elements .cardSection .cardSubSection p {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .sectionCards .cards .plantElements .card-elements .cardSection i {
+    font-size: 35px;
+  }
+  .sectionCards .emptyContainer:hover ~ .plantElements {
+    color: black;
+    transform: translateY(-200px);
+  }
+}
+
+/*# sourceMappingURL=index-phone.css.map */

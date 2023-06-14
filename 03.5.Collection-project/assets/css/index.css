@@ -7,11 +7,11 @@
 header .headerBg {
   position: absolute;
   background-color: #E57C23;
-  height: 75vh;
-  width: 200vw;
-  transform: rotate(-20deg);
-  top: -83px;
-  left: -344px;
+  height: 85vh;
+  width: 130vw;
+  transform: rotate(-10deg);
+  top: -160px;
+  left: -100px;
   z-index: -1;
 }
 header .headerText {
@@ -20,13 +20,25 @@ header .headerText {
   flex-direction: column;
   align-items: center;
   padding: 60px;
+  margin: auto;
 }
 header .headerText h1 {
   font-family: "Darumadrop One", cursive;
   font-size: 60px;
   color: #F8F1F1;
+  width: 40%;
+}
+header .headerText h1 span {
+  display: block;
+}
+header .headerText h1 .span1 {
+  text-align: left;
+}
+header .headerText h1 .span2 {
   text-align: center;
-  margin: 20px 50px;
+}
+header .headerText h1 .span3 {
+  text-align: right;
 }
 header .headerText h2 {
   font-family: "DM Serif Text";
@@ -38,6 +50,7 @@ header .headerText p {
   font-family: "Roboto";
   font-weight: 400;
   font-size: 16px;
+  width: 60%;
 }
 
 .sectionCards {
@@ -50,7 +63,8 @@ header .headerText p {
 }
 .sectionCards .cards {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-content: center;
 }
@@ -61,6 +75,7 @@ header .headerText p {
   margin: auto;
   margin-top: 20px;
   display: flex;
+  overflow: hidden;
 }
 .sectionCards .cards .cardFrame img {
   position: absolute;
@@ -79,8 +94,6 @@ header .headerText p {
   justify-content: flex-end;
   align-items: left;
   padding: 20px;
-}
-.sectionCards .cards .plantElements .plantName {
   transition: transform 250ms;
   transition-timing-function: ease;
 }
@@ -102,64 +115,35 @@ header .headerText p {
   font-size: 15px;
   padding-bottom: 10px;
 }
-.sectionCards .cards .card-elements {
+.sectionCards .cards .plantElements .card-elements {
   color: black;
   display: flex;
   flex-direction: column;
 }
-.sectionCards .cards .card-elements .cardSection {
+.sectionCards .cards .plantElements .card-elements .cardSection {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.sectionCards .cards .card-elements .cardSection .cardSubSection {
+.sectionCards .cards .plantElements .card-elements .cardSection .cardSubSection {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.sectionCards .cards .card-elements .cardSection .cardSubSection * {
+.sectionCards .cards .plantElements .card-elements .cardSection .cardSubSection * {
   padding: 10px;
 }
-.sectionCards .cards .card-elements .cardSection .cardSubSection p {
+.sectionCards .cards .plantElements .card-elements .cardSection .cardSubSection p {
   font-family: "Roboto";
   font-weight: 400;
   font-size: 16px;
 }
-.sectionCards .cards .card-elements .cardSection i {
+.sectionCards .cards .plantElements .card-elements .cardSection i {
   font-size: 35px;
 }
-.sectionCards .emptyContainer:hover ~ .plantElements .plantName {
+.sectionCards .emptyContainer:hover ~ .plantElements {
   color: black;
   transform: translateY(-200px);
 }
-.sectionCards .emptyContainer:hover ~ .plantElements .card-elements {
-  transform: translateY(-200px);
-}
-
-/*
-            .cardText {
-                height: 50%;
-                display: flex;
-                flex-direction: column;
-
-                .card-elements {
-                    h5 {
-                        @include h5();
-                    }
-                    .cardSection {
-                        display: flex;
-                        flex-direction: row;
-                        .icon {
-                                height: 50px;
-                            }
-                    }
-                }
-
-
-            }
-
-    }
-}
-*/
 
 /*# sourceMappingURL=index.css.map */

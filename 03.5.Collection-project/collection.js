@@ -363,7 +363,8 @@ const createCards = () => {
 
         //get the image
         newCardImage = document.createElement('div');
-        newCardImage.classList.add("emptyContainer")
+        newCardImage.classList.add("emptyContainer");
+        newCardImage.style.zIndex = "2"
         //newCardImage.src = collection[i].picture;
 
         //organise the card
@@ -420,10 +421,13 @@ const hideInfo = (cardframe) => {
 allContainers.forEach(element => {
     element.addEventListener("mouseover", (e) => {
         console.log(e.target)
-        revealInfo(e.target.parentNode)       
+        revealInfo(e.target.parentNode)
+        e.target.parentNode.style.backgroundColor = "lightgrey" 
+        e.target.parentNode.style.backgroundBlendMode = "overlay";     
     })
     element.addEventListener("mouseleave", (e) => {
         hideInfo(e.target.parentNode)
+        e.target.parentNode.style.backgroundBlendMode = "normal";
     })
 })
 

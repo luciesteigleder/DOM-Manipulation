@@ -1,80 +1,73 @@
 @import "config";
 
-
-header {
-    .headerBg {
-        position: absolute;
-        background-color: #E57C23;
-        height: 85vh;
-        width: 130vw;
-        transform: rotate(-10deg);
-        top: -160px;
-        left: -100px;
-        z-index: -1;
-    }
-    .headerText {
-        height: 80vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 60px;
-        margin: auto;
-        h1 {
-            @include h1();
-            //text-align: center;
-            width: 40%;
-            span {
-                display: block;
-            }
-            .span1 {
-                text-align: left;
-            }
-            .span2 {
-                text-align: center;
-            }
-            .span3 {
-                text-align: right;
-            }
-
+@media only screen and (max-width: 400px) {
+    header {
+        .headerBg {
+            position: absolute;
+            background-color: #E57C23;
+            height: 75vh;
+            width: 200vw;
+            transform: rotate(-20deg);
+            top: -83px;
+            left: -344px;
+            z-index: -1;
         }
-        h2 {
-            @include h2();
-            margin: 20px
-        }
-        p {
-            @include text();
-            width: 60%;
-        }
-    }
-}
 
-
-.sectionCards {
-    padding : 20px;
-    h3 {
-        @include h3();
-    }
-    .cards {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-content: center;
-        .cardFrame {
-            height: 303px;
-            width: 303px;
-            border: 2px solid $colorBlue;
-            margin: auto;
-            margin-top: 20px;
+        .headerText {
+            height: 80vh;
             display: flex;
-            overflow: hidden;
-            img {
-                position: absolute;
-                width: 300px;
-                opacity: 0.9;
-                z-index: -1;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px;
+
+            h1 {
+                @include h1();
+                text-align: center;
+                margin: 20px 50px
+            }
+
+            h2 {
+                @include h2();
+                margin: 20px
+            }
+
+            p {
+                @include text();
+            }
+        }
+    }
+
+
+    .sectionCards {
+        padding: 20px;
+
+        h3 {
+            @include h3();
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+
+            .cardFrame {
+                height: 303px;
+                width: 303px;
+                border: 2px solid $colorBlue;
+                margin: auto;
+                margin-top: 20px;
+                display: flex;
+                overflow: hidden;
+
+                img {
+                    position: absolute;
+                    width: 300px;
+                    opacity: 0.9;
+                    z-index: -1;
                 }
             }
+
             .plantElements {
                 position: relative;
                 top: 200px;
@@ -88,22 +81,27 @@ header {
                 padding: 20px;
                 transition: transform 250ms;
                 transition-timing-function: ease;
+
                 .plantName {
                     h4 {
-                            @include h4();
-                            margin-left: 20px;
-                        }
+                        @include h4();
+                        margin-left: 20px;
+                    }
+
                     hr {
                         @include hr();
                         margin-bottom: 20px;
                         margin-left: 20px;
                     }
+
                     // transition: transform 250ms;
                     // transition-timing-function: ease;
                 }
+
                 h5 {
                     @include h5();
                 }
+
                 .card-elements {
                     color: black;
                     display: flex;
@@ -120,6 +118,7 @@ header {
                             display: flex;
                             flex-direction: row;
                             align-items: center;
+
                             * {
                                 padding: 10px;
 
@@ -136,14 +135,15 @@ header {
                     }
                 }
             }
-    }
-    .emptyContainer:hover ~ .plantElements {
-        //.plantName {
+        }
+
+        .emptyContainer:hover~.plantElements {
+            //.plantName {
             color: black;
-            transform: translateY(-200px)
-        // }
-        // .toBeHidden {
-        //     transform: translateY(-200px);
-        // } 
+            transform: translateY(-200px) // }
+                // .toBeHidden {
+                //     transform: translateY(-200px);
+                // } 
+        }
     }
 }
