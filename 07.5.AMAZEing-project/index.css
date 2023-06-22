@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.unit {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wall {
+    background-color: #086788;
+}
+
+.path {
+    background-color: #FFF1D0;
+}
+
+.start {
+    background-color: #06AED5;
+}
+
+.treasure {
+    background-color: #DD1C1A;
+}
+
+.hero {
+    border: 1px solid black;
+    height: 35px;
+    width: 35px;
+    border-radius: 30px;
+    background-color: #F0C808;
+}
